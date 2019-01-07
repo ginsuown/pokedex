@@ -3,15 +3,15 @@ const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 const redis = require('redis');
 
-const client = redis.createClient();
+// const client = redis.createClient();
 
-// Connect redis client
-client.on('connect', function() {
-    console.log('Redis client connected');
-});
-client.on('error', function (err) {
-    console.log('Something went wrong ' + err);
-});
+// // Connect redis client
+// client.on('connect', function() {
+//     console.log('Redis client connected');
+// });
+// client.on('error', function (err) {
+//     console.log('Something went wrong ' + err);
+// });
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`

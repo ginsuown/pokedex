@@ -17,9 +17,22 @@
   },
   "homepage": "https://github.com/ginsuown/pokedex#readme",
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "@material-ui/core": "^3.8.2",
+    "@material-ui/icons": "^3.0.2",
+    "babel-loader": "^8.0.5",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
-    "redis": "^2.8.0"
+    "morgan": "^1.9.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "redis": "^2.8.0",
+    "request": "^2.88.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1"
   }
 }
