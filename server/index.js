@@ -6,6 +6,7 @@ const morgan = require('morgan')
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 const { makeExecutableSchema } = require('graph-tools')
+const { schemas } = 
 
 // Construct a schema, using GraphQL schema language
 // const schema = buildSchema(`
@@ -32,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('client/dist')) 
 
+/**
+ * This is for the express person of capturing the graphql query when we make an API call through a specific route
+ */
 morgan.token('graphql-query', (req) => {
   const {query, variables, operationName} = req.body;
   return `GRAPHQL: \nOperation Name: ${operationName} \nQuery: ${query} \nVariables: ${JSON.stringify(variables)}`;
