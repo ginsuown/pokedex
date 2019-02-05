@@ -1,4 +1,3 @@
-const pokemon = require('pokemon')
 const request = require('request')
 
 const base_url = 'https://pokeapi.co/api/v2/'
@@ -32,7 +31,6 @@ const getPokemonByName = (name, successCB, failureCB) => {
  */
 const getPokemonById = (id, successCB, failureCB) => {
     const requestUrl = `${base_url}pokemon/${id}`
-    console.log(requestUrl)
     request(requestUrl, (error, response, body) => {
         if(error) {
             failureCB(body)
@@ -46,12 +44,13 @@ const getPokemonById = (id, successCB, failureCB) => {
  * @returns the entire list of Pokemon in this existing database. 
  * Default objects for rendering select lists will include a label and value.
  */
-const getAllPokemon = () => {
-    return pokemon.all().map((p) => {
-        return {
-            label: p, 
-            id: p.toLowerCase().replace(" ", "-"),
-            value: pokemon.getId(p)
+const getAllPokemon = (successCB, failureCB) => {
+    const requestUrl = `${base_url}pokemon/?offset=0&limit=1000`
+    request(requestUrl, (error, response, body) => {
+        if(error) {
+            failureCB(body)
+        } else {
+            successCB(body)
         }
     })
 }
