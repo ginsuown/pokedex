@@ -4,11 +4,11 @@ const async = require('async')
 let pokemonData;
 const base_url = 'https://pokeapi.co/api/v2/'
 
-const getPokemon = () => {
+const getPokemon = (callback) => {
     async.waterfall([
         getAllPokemon,
         getIndividualPokemonData
-    ]);
+    ], callback)
 }
 
 const getAllPokemon = (callback) => {
@@ -33,6 +33,8 @@ const getPokemonData = (pokemon, callback) => {
         .then(response => response.json())
         .then(data => {
             callback(null, data)
+        }).catch((err) => {
+            console.log(`Failed to fetch ${pokemon.name}`)
         })
 }
 
