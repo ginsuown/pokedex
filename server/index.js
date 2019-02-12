@@ -8,11 +8,13 @@ const morgan = require('morgan')
 const graphqlHTTP = require('express-graphql');
 const healthCheckSchema = require('./schemas/healthCheck')
 const healthCheckResolver = require('./resolvers/healthCheck/healthCheck')
+const pokemonAPI = require('./apis/pokemon')
+
+pokemonAPI.getPokemon()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('client/dist')) 
-
 /**
  * This is for the express person of capturing the graphql query when we make an API call through a specific route
  */
@@ -26,6 +28,9 @@ app.use(morgan(':method :url :status :res[content-length] :graphql-query - :resp
 app.get('/healthCheck', (req, res) => {
   res.status(200).send('health check OK')
 })
+
+app.get('/pokemon/all', )
+
 
 app.use('/graphql', graphqlHTTP({
   schema: healthCheckSchema,

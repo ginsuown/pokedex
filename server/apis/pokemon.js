@@ -1,63 +1,42 @@
-const pokemon = require('pokemon')
-const request = require('request')
+const fetch = require('node-fetch')
+const async = require('async')
 
+let pokemonData;
 const base_url = 'https://pokeapi.co/api/v2/'
 
-/**
- * Method calls the pokemon API based on the name
- * Will need to readjust later to include callbacks
- * or modify the query to be more GraphQL heavy
- * @param {*} name of the pokemon
- * @param {*} successCB
- * @param {*} failureCB
- */
-const getPokemonByName = (name, successCB, failureCB) => {
-    const requestUrl = `${base_url}pokemon/${name}`
-    request(requestUrl, (error, response, body) => {
-        if(error) {
-            failureCB(body)
-        } else {
-            successCB(body)
-        }
-    })
+const getPokemon = () => {
+    async.waterfall([
+        getAllPokemon,
+        getIndividualPokemonData
+    ]);
 }
 
-/**
- * Methods call the pokemon API based on the id
- * Will need to also readjust later to include the correct request, response callbacks
- * or modify the query to be more GraphQL heavy
- * @param {*} id 
- * @param {*} successCB 
- * @param {*} failureCB 
- */
-const getPokemonById = (id, successCB, failureCB) => {
-    const requestUrl = `${base_url}pokemon/${id}`
-    console.log(requestUrl)
-    request(requestUrl, (error, response, body) => {
-        if(error) {
-            failureCB(body)
-        } else {
-            successCB(body)
-        }
-    })
+const getAllPokemon = (callback) => {
+    let requestUrl = `${base_url}pokemon/?offset=0&limit=1000`
+    fetch(requestUrl)
+        .then(response => response.json())
+        .then(data => {
+            callback(null, data.results)
+        });
 }
 
-/**
- * @returns the entire list of Pokemon in this existing database. 
- * Default objects for rendering select lists will include a label and value.
- */
-const getAllPokemon = () => {
-    return pokemon.all().map((p) => {
-        return {
-            label: p, 
-            id: p.toLowerCase().replace(" ", "-"),
-            value: pokemon.getId(p)
-        }
-    })
+const getIndividualPokemonData = (list) => {
+    async.map(list, getPokemonData, (err, results) => {
+        console.log(`Total results: ${results.length}`)
+        pokemonData = results;
+    });
 }
 
-modules.exports = {
-    getPokemonByName,
-    getPokemonById,
-    getAllPokemon
+const getPokemonData = (pokemon, callback) => {
+    console.log(`Calling ${pokemon.url} for ${pokemon.name}`)
+    fetch(pokemon.url)
+        .then(response => response.json())
+        .then(data => {
+            callback(null, data)
+        })
+}
+
+module.exports = {
+    getPokemon,
+    pokemonData
 }
