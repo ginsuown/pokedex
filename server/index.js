@@ -55,7 +55,7 @@ initPokemonData
   .then((app) => {
     app.listen(port, () => {
       console.log(`Listening to port ${port}`)
-      console.log(`${pokemonData.length}`)
+      console.log(`${pokemonData[0].name} says hi`)
     });
   })
   .catch((err) => {

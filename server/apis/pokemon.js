@@ -12,7 +12,7 @@ const getPokemon = (callback) => {
 }
 
 const getAllPokemon = (callback) => {
-    let requestUrl = `${base_url}pokemon/?offset=0&limit=1000`
+    let requestUrl = `${base_url}pokemon/?offset=0&limit=1500`
     fetch(requestUrl)
         .then(response => response.json())
         .then(data => {
