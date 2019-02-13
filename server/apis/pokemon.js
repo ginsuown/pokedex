@@ -1,7 +1,6 @@
 const fetch = require('node-fetch')
 const async = require('async')
 
-let pokemonData;
 const base_url = 'https://pokeapi.co/api/v2/'
 
 const getPokemon = (callback) => {
@@ -37,10 +36,11 @@ const getIndividualPokemonData = (list, callback) => {
 }
 
 const getPokemonData = (pokemon, callback) => {
-    // console.log(`Calling ${pokemon.url} for ${pokemon.name}`)
+    console.log(`Calling ${pokemon.url} for ${pokemon.name}`)
     fetch(pokemon.url)
         .then(response => response.json())
         .then(data => {
+            console.log(`Got back order number ${data.order}`)
             callback(null, data)
         })
         .catch((err) => {
@@ -51,6 +51,5 @@ const getPokemonData = (pokemon, callback) => {
 }
 
 module.exports = {
-    getPokemon,
-    pokemonData
+    getPokemon
 }
