@@ -33,7 +33,8 @@ const getPokemonData = (pokemon, callback) => {
         .then(response => response.json())
         .then(data => {
             callback(null, data)
-        }).catch((err) => {
+        })
+        .catch((err) => {
             console.log(`Failed to fetch ${pokemon.name}`)
         })
 }
