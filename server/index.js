@@ -10,13 +10,13 @@ const healthCheckSchema = require('./schemas/healthCheck')
 const healthCheckResolver = require('./resolvers/healthCheck/healthCheck')
 const pokemonAPI = require('./apis/pokemon')
 
+let pokemonData = []
 const initPokemonData = new Promise((resolve, reject) => {
   pokemonAPI.getPokemon((err, result) => {
     if(err) {
-      console.log(err)
       reject(err)
-      return
     } else {
+      pokemonData = result
       initExpressServer();
       resolve(app)
     }
@@ -51,11 +51,16 @@ const initExpressServer = () => {
   }));
 }
 
-initPokemonData.then((app) => {
-  app.listen(port, () => {
-    console.log(`Listening to port ${port}`)
-  });
-})
+initPokemonData
+  .then((app) => {
+    app.listen(port, () => {
+      console.log(`Listening to port ${port}`)
+      console.log(`${pokemonData[0].name} says hi`)
+    });
+  })
+  .catch((err) => {
+    console.log(`Server could not start up`)
+  })
 
 
 
