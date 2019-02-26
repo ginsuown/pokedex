@@ -1,4 +1,5 @@
 #import Ability from 'Ability.graphql'
+#import Detail from 'Detail.graphql'
 #import Form from 'Form.graphql'
 #import Move from 'Move.graphql'
 #import Species from 'Species.graphql'

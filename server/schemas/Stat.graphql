@@ -1,8 +1,5 @@
 type Stat {
     base_stat: Int
     effort: Int
-    stat: {
-        name: String
-        url: String
-    }
+    stat: Detail
 }

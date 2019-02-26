@@ -1,6 +1,5 @@
 type Ability {
-    ability: {
-        name: String
-        url: String
-    }
+    ability: Detail
+    isHidden: Boolean
+    slot: Int
 }
