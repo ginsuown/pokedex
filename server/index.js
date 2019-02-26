@@ -7,7 +7,8 @@ const port = process.env.PORT || 4000
 const morgan = require('morgan')
 const pokemonAPI = require('./apis/pokemon')
 const { buildSchema } = require('graphql')
-const typeDefs = require('./schemes/index') 
+const typeDefs = require('./schemas/index')
+const rootValue = require('./resolvers/index') 
 
 const schema = buildSchema(typeDefs)
 
@@ -44,7 +45,7 @@ const initExpressServer = () => {
 
   app.use('/pokemon', graphqlHTTP({
     schema,
-    
+    rootValue,
     graphiql: true
   }))
 }
