@@ -10,7 +10,7 @@ const client = new ApolloClient({
 
 const Pokedex = () => (
     <ApolloProvider client={client}>
-        <App></App>
+        <App/>
     </ApolloProvider>
 )
 

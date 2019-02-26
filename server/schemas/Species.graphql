@@ -1,0 +1,4 @@
+type Species {
+    name: String
+    url: String
+}

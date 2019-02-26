@@ -1,0 +1,7 @@
+type Type {
+    slot: Int
+    type: {
+        name: String
+        url: String
+    }
+}

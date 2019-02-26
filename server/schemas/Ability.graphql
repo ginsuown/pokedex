@@ -1,0 +1,6 @@
+type Ability {
+    ability: {
+        name: String
+        url: String
+    }
+}

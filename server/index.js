@@ -5,10 +5,11 @@ const app = express();
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000 
 const morgan = require('morgan')
-// const graphqlHTTP = require('express-graphql');
-// const healthCheckSchema = require('./schemas/healthCheck')
-// const healthCheckResolver = require('./resolvers/healthCheck/healthCheck')
 const pokemonAPI = require('./apis/pokemon')
+const { buildSchema } = require('graphql')
+const typeDefs = require('./schemes/index') 
+
+const schema = buildSchema(typeDefs)
 
 let pokemonData = []
 const initPokemonData = new Promise((resolve, reject) => {
@@ -41,19 +42,11 @@ const initExpressServer = () => {
     res.status(200).send('health check OK')
   })
 
-  app.get('/pokemon/all', (req, res) => {
-    res.status(200).send({results: pokemonData})
-  })
-
-  // app.use('/pokemon', graphqlHTTP({
-
-  // }))
-
-//   app.use('/graphql-healthCheck', graphqlHTTP({
-//     schema: healthCheckSchema,
-//     rootValue: healthCheckResolver,
-//     graphiql: true,
-//   }));
+  app.use('/pokemon', graphqlHTTP({
+    schema,
+    
+    graphiql: true
+  }))
 }
 
 initPokemonData
