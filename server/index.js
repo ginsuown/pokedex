@@ -7,6 +7,7 @@ const port = process.env.PORT || 4000
 const morgan = require('morgan')
 const pokemonAPI = require('./apis/pokemon')
 const { buildSchema } = require('graphql')
+const graphqlHTTP = require('express-graphql');
 const typeDefs = require('./schemas/index')
 const rootValue = require('./resolvers/index') 
 
