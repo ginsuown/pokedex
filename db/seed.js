@@ -45,13 +45,20 @@ let seedMongo = (err, result) => {
     } else {
         result.forEach((pokemon) => {
             let data = pokemonDataExtraction(pokemon);
-            pokemonDB.createPokemon(data);
-        })
+            pokemonDB.createPokemon(data, (err, results) => {
+                if(err) {
+                    console.error(err)
+                } else {
+                    console.log(results)
+                }
+            });
+        });
+        return;
     }
 }
 
-// async.waterfall([
-//     pokemonAPI.getAllPokemon,
-//     pokemonAPI.getIndividualPokemonData
-// ], seedMongo);
+async.waterfall([
+    pokemonAPI.getAllPokemon,
+    pokemonAPI.getIndividualPokemonData
+], seedMongo);
 

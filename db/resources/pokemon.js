@@ -1,11 +1,10 @@
 const PokemonSchema = require('../schemas/pokemonSchema')
 const mongoose = require('mongoose');
-const database = require('./index.js');
 
-const PokemonModel = mongoose.model('PokemonModel', PokemonSchema);
+const PokemonModel = mongoose.model('Pokemon', PokemonSchema, 'Pokemon');
 
 const createPokemon = (pokemon, callback) => {
-  const newPokemon = new ResourceModel(pokemon);
+  const newPokemon = new PokemonModel(pokemon);
   newPokemon.save((err, results) => {
     if (err) {
       callback(err, null);
