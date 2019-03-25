@@ -1,33 +1,22 @@
 let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+let AbilitiesSchema = require('./common/AbilitiesSchema');
+let FormsSchema = require('./common/FormsSchema')
+let MovesSchema = require('./common/MovesSchema');
+let SpeciesSchema = require('./common/SpeciesSchema');
+let TypesSchema = require('./common/TypesSchema');
 
-let PokemonSchema = new Schema({
-    abilities: [{
-        ability: {
-            name: String,
-            url: String
-        },
-        isHidden: Boolean
-    }],
+let PokemonSchema = mongoose.Schema({
+    abilities: [ AbilitiesSchema ],
     base_experience: Number,
-    forms: [{
-        name: String,
-        url: String
-    }],
+    forms: [ FormsSchema ],
     height: Number,
     id: Number,
     is_default: Boolean,
     location_area_encounters: String,
-    moves: [{
-        name: String,
-        url: String
-    }],
+    moves: [ MovesSchema ],
     name: String,
     order: Number,
-    species: [{
-        name: String,
-        url: String
-    }],
+    species: [ SpeciesSchema ],
     sprites: {
         back_default: String,
         back_female: String,
@@ -38,13 +27,7 @@ let PokemonSchema = new Schema({
         front_shiny: String,
         front_shiny_female: String,
     },
-    types: [{
-        slot: Number,
-        type: {
-            name: String,
-            url: String
-        }
-    }],
+    types: [ TypesSchema ],
     weight: Number
 });
 

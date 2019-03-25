@@ -1,11 +1,12 @@
-const resourceSchema = require('./schema.js')
+const PokemonSchema = require('../schemas/pokemonSchema')
 const mongoose = require('mongoose');
+const database = require('./index.js');
 
-const PokemonModel = mongoose.model('ResourceModel', resourceSchema);
+const PokemonModel = mongoose.model('PokemonModel', PokemonSchema);
 
-const createResource = (resource, callback) => {
-  const newResource = new ResourceModel(resource);
-  newResource.save((err, results) => {
+const createPokemon = (pokemon, callback) => {
+  const newPokemon = new ResourceModel(pokemon);
+  newPokemon.save((err, results) => {
     if (err) {
       callback(err, null);
     } else {
@@ -14,18 +15,18 @@ const createResource = (resource, callback) => {
   });
 };
 
-const getAllResources = (callback) => {
-  ResourceModel.find({}, (err, resources) => {
+const getAllPokemon = (callback) => {
+  PokemonModel.find({}, (err, pokemon) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, resources);
+      callback(null, pokemon);
     }
   });
 };
 
-const deleteResource = (id, callback) => {
-  ResourceModel.remove({_id: id}, (err, results) => {
+const deletePokemon = (id, callback) => {
+  PokemonModel.remove({_id: id}, (err, results) => {
     if (err) {
       callback(err, null);
     } else {
@@ -34,6 +35,21 @@ const deleteResource = (id, callback) => {
   });
 };
 
-module.exports.createResource = createResource;
-module.exports.getAllResources = getAllResources;
-module.exports.deleteResource = deleteResource;
+const searchPokemonByName = (name, callback) => {
+
+}
+
+const searchPokemonByType = (type, callback) => {
+
+}
+
+const searchPokemonByMoves = (moves, callback) => {
+
+}
+
+module.exports.createPokemon = createPokemon;
+module.exports.getAllPokemon = getAllPokemon;
+module.exports.searchPokemonByName = searchPokemonByName;
+module.exports.searchPokemonByType = searchPokemonByType;
+module.exports.searchPokemonByMoves = searchPokemonByMoves;
+module.exports.deletePokemon = deletePokemon;

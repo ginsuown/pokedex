@@ -39,11 +39,6 @@ const initExpressServer = () => {
   // });
 
   // app.use(morgan(':method :url :status :res[content-length] :graphql-query - :response-time ms'))
-
-  app.get('/healthCheck', (req, res) => {
-    res.status(200).send('health check OK')
-  })
-
   app.use('/pokemon', graphqlHTTP({
     schema,
     rootValue,
@@ -51,16 +46,16 @@ const initExpressServer = () => {
   }))
 }
 
-initPokemonData
-  .then((app) => {
-    app.listen(port, () => {
-      console.log(`Listening to port ${port}`)
-      console.log(`${pokemonData[0].name} says hi`)
-    });
-  })
-  .catch((err) => {
-    console.log(`Server could not start up`)
-  })
+// initPokemonData
+//   .then((app) => {
+//     app.listen(port, () => {
+//       console.log(`Listening to port ${port}`)
+//       console.log(`${pokemonData[0].name} says hi`)
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(`Server could not start up`)
+//   })
 
 
 
