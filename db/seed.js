@@ -21,6 +21,11 @@ let pokemonDataExtraction = (response) => {
         weight
     } = response;
 
+    let updatedMoves = []
+    moves.forEach((move) => {
+        updatedMoves.push(move.move)
+    })
+
     return {
         abilities,
         base_experience,
@@ -29,7 +34,7 @@ let pokemonDataExtraction = (response) => {
         id,
         is_default,
         location_area_encounters,
-        moves,
+        moves: updatedMoves,
         name,
         order,
         species,
