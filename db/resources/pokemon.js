@@ -6,6 +6,7 @@ const PokemonModel = mongoose.model('Pokemon', PokemonSchema, 'Pokemon');
 const createPokemon = (pokemon, callback) => {
   const newPokemon = new PokemonModel(pokemon);
   newPokemon.save((err, results) => {
+    console.log(results.length)
     if (err) {
       callback(err, null);
     } else {
@@ -17,6 +18,7 @@ const createPokemon = (pokemon, callback) => {
 const getAllPokemon = () => {
   return new Promise((resolve, reject) => {
     PokemonModel.find({}, (err, results) => {
+      console.log(results)
       if(err) {
         reject(err)
       } else {
