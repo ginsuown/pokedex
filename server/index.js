@@ -31,5 +31,8 @@ app.use('/pokemon', graphqlHTTP({
   graphiql: true
 }))
 
+app.listen(port, () => {
+  console.log(`app is running on ${port}`)
+})
 
 
