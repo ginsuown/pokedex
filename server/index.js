@@ -8,6 +8,7 @@ const morgan = require('morgan')
 const db = require('../db');
 const { buildSchema } = require('graphql')
 const graphqlHTTP = require('express-graphql');
+
 const typeDefs = require('./schemas/index')
 const rootValue = require('./resolvers/index') 
 const cors = require('cors')
