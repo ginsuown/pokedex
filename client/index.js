@@ -5,7 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
 
 const client = new ApolloClient({
-    uri: 'localhost:4000/pokemon'
+    uri: 'http://localhost:4000/pokemon'
 })
 
 const Pokedex = () => (

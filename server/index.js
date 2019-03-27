@@ -5,20 +5,22 @@ const app = express();
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000 
 const morgan = require('morgan')
-const pokemonAPI = require('./apis/pokemon')
 const db = require('../db');
 const { buildSchema } = require('graphql')
 const graphqlHTTP = require('express-graphql');
 const typeDefs = require('./schemas/index')
 const rootValue = require('./resolvers/index') 
+const cors = require('cors')
 
 const schema = buildSchema(typeDefs)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('client/dist')) 
+app.use(cors())
+
 /**
- * This is for the express person of capturing the graphql query when we make an API call through a specific route
+ * This is for the middleware to log whatever graphQL is calling.
  */
 morgan.token('graphql-query', (req) => {
   const {query, variables, operationName} = req.body;
