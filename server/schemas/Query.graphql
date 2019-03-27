@@ -1,0 +1,6 @@
+#import Pokemon from 'Pokemon.graphql'
+
+type Query {
+    all: [ Pokemon ],
+    pokemon(id: String!, type: String!, name: String!): Pokemon 
+}

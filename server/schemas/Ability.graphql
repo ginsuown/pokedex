@@ -1,0 +1,5 @@
+type Ability {
+    ability: Detail
+    isHidden: Boolean
+    slot: Int
+}

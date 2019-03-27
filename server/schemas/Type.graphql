@@ -1,0 +1,4 @@
+type Type {
+    slot: Int
+    type: Detail
+}

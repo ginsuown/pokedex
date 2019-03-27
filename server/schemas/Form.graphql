@@ -1,0 +1,4 @@
+type Form {
+    name: String
+    url: String
+}

@@ -1,0 +1,4 @@
+type Detail {
+    name: String
+    url: String
+}

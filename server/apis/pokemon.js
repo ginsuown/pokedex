@@ -3,13 +3,6 @@ const async = require('async')
 
 const base_url = 'https://pokeapi.co/api/v2/'
 
-const getPokemon = (callback) => {
-    async.waterfall([
-        getAllPokemon,
-        getIndividualPokemonData
-    ], callback)
-}
-
 const getAllPokemon = (callback) => {
     let requestUrl = `${base_url}pokemon/?offset=0&limit=1500`
     fetch(requestUrl)
@@ -51,5 +44,6 @@ const getPokemonData = (pokemon, callback) => {
 }
 
 module.exports = {
-    getPokemon
+    getAllPokemon,
+    getIndividualPokemonData
 }
