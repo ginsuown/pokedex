@@ -18,12 +18,16 @@ const createPokemon = (pokemon, callback) => {
 const searchPokemon = (id, type, name) => {
   return new Promise((resolve, reject) => {
     let query = {}
+
     if(id) {
       query.id = id;
     }
+
+    // { types: { $elemMatch: { name: "water" } } }
     if(type) {
-      query.type = type
+      let typeQuery = { types: { $elemMatch: { name: type } } }
     }
+    
     if(name) {
       query.name = name
     }

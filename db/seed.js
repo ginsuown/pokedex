@@ -21,13 +21,31 @@ let pokemonDataExtraction = (response) => {
         weight
     } = response;
 
-    let updatedMoves = []
+    let updatedMoves = [];
     moves.forEach((move) => {
         updatedMoves.push(move.move)
     })
 
+    let flattenedAbilities = [];
+    abilities.forEach((a) => {
+        let abilityObj = {};
+        abilityObj.name = a.ability.name;
+        abilityObj.url = a.ability.url;
+        abilityObj.is_hidden = a.is_hidden;
+        flattenedAbilities.push(abilityObj);
+    });
+
+
+    let flattenedTypes = [];
+    types.forEach((t) => {
+        let typeObj = {};
+        typeObj.name = t.type.name;
+        typeObj.url = t.type.url;
+        flattenedTypes.push(typeObj);
+    })
+
     return {
-        abilities,
+        abilities: flattenedAbilities,
         base_experience,
         forms,
         height,
@@ -39,7 +57,7 @@ let pokemonDataExtraction = (response) => {
         order,
         species,
         sprites,
-        types,
+        types: flattenedTypes,
         weight
     };
 }

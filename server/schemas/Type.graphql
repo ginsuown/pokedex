@@ -1,4 +1,4 @@
 type Type {
-    slot: Int
-    type: Detail
+    name: String
+    url: String
 }

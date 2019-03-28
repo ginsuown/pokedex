@@ -1,11 +1,9 @@
 let mongoose = require('mongoose');
 
 let AbilitiesSchema = mongoose.Schema({
-    ability: {
-        name: String,
-        url: String
-    },
-    isHidden: Boolean
+    name: String,
+    url: String,
+    is_hidden: Boolean
 });
 
 module.exports = AbilitiesSchema;
