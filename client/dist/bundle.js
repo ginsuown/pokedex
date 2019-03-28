@@ -210,7 +210,7 @@ __webpack_require__.r(__webpack_exports__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n            {\n                all {\n                    id\n                    name\n                }\n            }"]);
+  var data = _taggedTemplateLiteral(["\n            {\n \t            pokemon(id: null, type: null, name: null) {\n                    id,\n                    name\n                }\n            }"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -290,8 +290,7 @@ function (_React$Component) {
             data = _ref.data;
         if (loading) return "Loading...";
         if (error) return "Error! ".concat(error.message);
-        console.log(data.all.length);
-        var suggestions = data.all.map(function (d) {
+        var suggestions = data.pokemon.map(function (d) {
           return {
             label: d.name,
             value: d.id

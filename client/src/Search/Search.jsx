@@ -27,8 +27,8 @@ class Search extends React.Component {
     render() {
         const SEARCH_OPTIONS = gql`
             {
-                all {
-                    id
+ 	            pokemon(id: null, type: null, name: null) {
+                    id,
                     name
                 }
             }`
@@ -40,8 +40,7 @@ class Search extends React.Component {
                 ({ loading, error, data}) => {
                     if (loading) return "Loading...";
                     if (error) return `Error! ${error.message}`;
-                    console.log(data.all.length)
-                    let suggestions = data.all.map((d) => {
+                    let suggestions = data.pokemon.map((d) => {
                         return {
                             label: d.name,
                             value: d.id

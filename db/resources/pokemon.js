@@ -15,54 +15,29 @@ const createPokemon = (pokemon, callback) => {
   });
 };
 
-const getAllPokemon = () => {
+const searchPokemon = (id, type, name) => {
   return new Promise((resolve, reject) => {
-    PokemonModel.find({}, (err, results) => {
+    let query = {}
+    if(id) {
+      query.id = id;
+    }
+    if(type) {
+      query.type = type
+    }
+    if(name) {
+      query.name = name
+    }
+    console.log(`Query: ${JSON.stringify(query)}`)
+    PokemonModel.find(query, (err, results) => {
       console.log(results)
       if(err) {
         reject(err)
       } else {
         resolve(results)
       }
-    })
-  })
-};
-
-const searchPokemonByName = (name, callback) => {
-  PokemonModel.find({name}, (err, pokemon) => {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, pokemon);
-    }
+    });
   });
-}
-
-
-
-
-const searchPokemonByType = (type, callback) => {
-  PokemonModel.find({type}, (err, pokemon) => {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, pokemon);
-    }
-  });
-}
-
-const searchPokemonById = (id, callback) => {
-  PokemonModel.find({ id }, (err, pokemon) => {
-    if(err) {
-      callback(err, null)
-    } else {
-      callback(null, pokemon)
-    }
-  })
 }
 
 module.exports.createPokemon = createPokemon;
-module.exports.getAllPokemon = getAllPokemon;
-module.exports.searchPokemonByName = searchPokemonByName;
-module.exports.searchPokemonByType = searchPokemonByType;
-module.exports.searchPokemonById = searchPokemonById;
+module.exports.searchPokemon = searchPokemon;
