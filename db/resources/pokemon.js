@@ -25,15 +25,14 @@ const searchPokemon = (id, type, name) => {
 
     // { types: { $elemMatch: { name: "water" } } }
     if(type) {
-      let typeQuery = { types: { $elemMatch: { name: type } } }
+      query = { types: { $elemMatch: { name: type } } }
     }
-    
+
     if(name) {
       query.name = name
     }
     console.log(`Query: ${JSON.stringify(query)}`)
     PokemonModel.find(query, (err, results) => {
-      console.log(results)
       if(err) {
         reject(err)
       } else {
