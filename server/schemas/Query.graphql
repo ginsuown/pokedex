@@ -1,5 +1,5 @@
 #import Pokemon from 'Pokemon.graphql'
 
 type Query {
-    pokemon(id: Int, type: String, name: String): [ Pokemon ] 
+    pokemon(id: Int, type: String, name: String, specie: String, move: String): [ Pokemon ] 
 }

@@ -15,7 +15,7 @@ const createPokemon = (pokemon, callback) => {
   });
 };
 
-const searchPokemon = (id, type, name) => {
+const searchPokemon = (id, type, name, specie, move) => {
   return new Promise((resolve, reject) => {
     let query = {}
 
@@ -23,14 +23,22 @@ const searchPokemon = (id, type, name) => {
       query.id = id;
     }
 
-    // { types: { $elemMatch: { name: "water" } } }
     if(type) {
-      query = { types: { $elemMatch: { name: type } } }
+      query.types = { $elemMatch: { name: type } } 
     }
 
     if(name) {
       query.name = name
     }
+
+    if(specie) {
+      query = {"species.name": specie}
+    }
+
+    if(move) {
+      query.moves = { $elemMatch: { name: move } } 
+    }
+
     console.log(`Query: ${JSON.stringify(query)}`)
     PokemonModel.find(query, (err, results) => {
       if(err) {

@@ -16,7 +16,7 @@ let PokemonSchema = mongoose.Schema({
     moves: [ MovesSchema ],
     name: String,
     order: Number,
-    species: [ SpeciesSchema ],
+    species: SpeciesSchema,
     sprites: {
         back_default: String,
         back_female: String,
