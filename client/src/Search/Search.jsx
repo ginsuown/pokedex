@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles.js'
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import LoadingBar from '../LoadingBar/LoadingBar.jsx'
 
 class Search extends React.Component {
 
@@ -24,6 +25,10 @@ class Search extends React.Component {
         })
     }
 
+    renderLoading() {
+        return <LoadingBar color={"secondary"}/>
+    }
+
     render() {
         const SEARCH_OPTIONS = gql`
             {
@@ -38,7 +43,9 @@ class Search extends React.Component {
             <Query query={SEARCH_OPTIONS}>
             {
                 ({ loading, error, data}) => {
-                    if (loading) return "Loading...";
+                    if (loading) {
+                        return this.renderLoading();
+                    };
                     if (error) return `Error! ${error.message}`;
                     let suggestions = data.pokemon.map((d) => {
                         return {

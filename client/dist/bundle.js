@@ -185,6 +185,100 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./client/src/LoadingBar/LoadingBar.jsx":
+/*!**********************************************!*\
+  !*** ./client/src/LoadingBar/LoadingBar.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/LinearProgress */ "./node_modules/@material-ui/core/LinearProgress/index.js");
+/* harmony import */ var _material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles.js */ "./client/src/LoadingBar/styles.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var LoadingBar =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(LoadingBar, _React$Component);
+
+  function LoadingBar(props) {
+    _classCallCheck(this, LoadingBar);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(LoadingBar).call(this, props));
+  }
+
+  _createClass(LoadingBar, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          classes = _this$props.classes,
+          variant = _this$props.variant,
+          color = _this$props.color;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.root
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        variant: variant,
+        color: color
+      }));
+    }
+  }]);
+
+  return LoadingBar;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["withStyles"])(_styles_js__WEBPACK_IMPORTED_MODULE_4__["default"])(LoadingBar));
+
+/***/ }),
+
+/***/ "./client/src/LoadingBar/styles.js":
+/*!*****************************************!*\
+  !*** ./client/src/LoadingBar/styles.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var styles = {
+  root: {
+    flexGrow: 1
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (styles);
+
+/***/ }),
+
 /***/ "./client/src/Search/Search.jsx":
 /*!**************************************!*\
   !*** ./client/src/Search/Search.jsx ***!
@@ -207,6 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var _LoadingBar_LoadingBar_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../LoadingBar/LoadingBar.jsx */ "./client/src/LoadingBar/LoadingBar.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
@@ -247,6 +342,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var Search =
 /*#__PURE__*/
 function (_React$Component) {
@@ -273,6 +369,13 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "renderLoading",
+    value: function renderLoading() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingBar_LoadingBar_jsx__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        color: "secondary"
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -288,7 +391,12 @@ function (_React$Component) {
         var loading = _ref.loading,
             error = _ref.error,
             data = _ref.data;
-        if (loading) return "Loading...";
+
+        if (loading) {
+          return _this2.renderLoading();
+        }
+
+        ;
         if (error) return "Error! ".concat(error.message);
         var suggestions = data.pokemon.map(function (d) {
           return {
@@ -6529,6 +6637,348 @@ Object.defineProperty(exports, "default", {
 });
 
 var _InputLabel = _interopRequireDefault(__webpack_require__(/*! ./InputLabel */ "./node_modules/@material-ui/core/InputLabel/InputLabel.js"));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/LinearProgress/LinearProgress.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/LinearProgress/LinearProgress.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js"));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js"));
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _warning = _interopRequireDefault(__webpack_require__(/*! warning */ "./node_modules/warning/warning.js"));
+
+var _withStyles = _interopRequireDefault(__webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/styles/withStyles.js"));
+
+var _colorManipulator = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/styles/colorManipulator.js");
+
+var TRANSITION_DURATION = 4; // seconds
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative',
+      overflow: 'hidden',
+      height: 4
+    },
+
+    /* Styles applied to the root & bar2 element if `color="primary"`; bar2 if `variant-"buffer"`. */
+    colorPrimary: {
+      backgroundColor: (0, _colorManipulator.lighten)(theme.palette.primary.light, 0.6)
+    },
+    // eslint-disable-next-line max-len
+
+    /* Styles applied to the root & bar2 elements if `color="secondary"`; bar2 if `variant="buffer"`. */
+    colorSecondary: {
+      backgroundColor: (0, _colorManipulator.lighten)(theme.palette.secondary.light, 0.4)
+    },
+
+    /* Styles applied to the root element if `variant="determinate"`. */
+    determinate: {},
+
+    /* Styles applied to the root element if `variant="indeterminate"`. */
+    indeterminate: {},
+
+    /* Styles applied to the root element if `variant="buffer"`. */
+    buffer: {
+      backgroundColor: 'transparent'
+    },
+
+    /* Styles applied to the root element if `variant="query"`. */
+    query: {
+      transform: 'rotate(180deg)'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"`. */
+    dashed: {
+      position: 'absolute',
+      marginTop: 0,
+      height: '100%',
+      width: '100%',
+      animation: 'buffer 3s infinite linear',
+      // Backward compatible logic between JSS v9 and v10.
+      // To remove with the release of Material-UI v4
+      animationName: '$buffer'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` & `color="primary"`. */
+    dashedColorPrimary: {
+      backgroundImage: "radial-gradient(".concat((0, _colorManipulator.lighten)(theme.palette.primary.light, 0.6), " 0%, ").concat((0, _colorManipulator.lighten)(theme.palette.primary.light, 0.6), " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0px -23px'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` & `color="secondary"`. */
+    dashedColorSecondary: {
+      backgroundImage: "radial-gradient(".concat((0, _colorManipulator.lighten)(theme.palette.secondary.light, 0.4), " 0%, ").concat((0, _colorManipulator.lighten)(theme.palette.secondary.light, 0.6), " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0px -23px'
+    },
+
+    /* Styles applied to the layered bar1 & bar2 elements. */
+    bar: {
+      width: '100%',
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      top: 0,
+      transition: 'transform 0.2s linear',
+      transformOrigin: 'left'
+    },
+
+    /* Styles applied to the bar elements if `color="primary"`; bar2 if `variant` not "buffer". */
+    barColorPrimary: {
+      backgroundColor: theme.palette.primary.main
+    },
+
+    /* Styles applied to the bar elements if `color="secondary"`; bar2 if `variant` not "buffer". */
+    barColorSecondary: {
+      backgroundColor: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the bar1 element if `variant="indeterminate or query"`. */
+    bar1Indeterminate: {
+      width: 'auto',
+      animation: 'mui-indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite',
+      // Backward compatible logic between JSS v9 and v10.
+      // To remove with the release of Material-UI v4
+      animationName: '$mui-indeterminate1'
+    },
+
+    /* Styles applied to the bar1 element if `variant="determinate"`. */
+    bar1Determinate: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar1 element if `variant="buffer"`. */
+    bar1Buffer: {
+      zIndex: 1,
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar2 element if `variant="indeterminate or query"`. */
+    bar2Indeterminate: {
+      width: 'auto',
+      animation: 'mui-indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite',
+      // Backward compatible logic between JSS v9 and v10.
+      // To remove with the release of Material-UI v4
+      animationName: '$mui-indeterminate2',
+      animationDelay: '1.15s'
+    },
+
+    /* Styles applied to the bar2 element if `variant="buffer"`. */
+    bar2Buffer: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+    // Legends:
+    // || represents the viewport
+    // -  represents a light background
+    // x  represents a dark background
+    '@keyframes mui-indeterminate1': {
+      //  |-----|---x-||-----||-----|
+      '0%': {
+        left: '-35%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||xxxx-|
+      '60%': {
+        left: '100%',
+        right: '-90%'
+      },
+      '100%': {
+        left: '100%',
+        right: '-90%'
+      }
+    },
+    '@keyframes mui-indeterminate2': {
+      //  |xxxxx|xxxxx||-----||-----|
+      '0%': {
+        left: '-200%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||-x----|
+      '60%': {
+        left: '107%',
+        right: '-8%'
+      },
+      '100%': {
+        left: '107%',
+        right: '-8%'
+      }
+    },
+    '@keyframes buffer': {
+      '0%': {
+        opacity: 1,
+        backgroundPosition: '0px -23px'
+      },
+      '50%': {
+        opacity: 0,
+        backgroundPosition: '0px -23px'
+      },
+      '100%': {
+        opacity: 1,
+        backgroundPosition: '-200px -23px'
+      }
+    }
+  };
+};
+/**
+ * ## ARIA
+ *
+ * If the progress bar is describing the loading progress of a particular region of a page,
+ * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+ * attribute to `true` on that region until it has finished loading.
+ */
+
+
+exports.styles = styles;
+
+function LinearProgress(props) {
+  var _classNames, _classNames2, _classNames3, _classNames4;
+
+  var classes = props.classes,
+      classNameProp = props.className,
+      color = props.color,
+      value = props.value,
+      valueBuffer = props.valueBuffer,
+      variant = props.variant,
+      other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "color", "value", "valueBuffer", "variant"]);
+  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.colorPrimary, color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.colorSecondary, color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.determinate, variant === 'determinate'), (0, _defineProperty2.default)(_classNames, classes.indeterminate, variant === 'indeterminate'), (0, _defineProperty2.default)(_classNames, classes.buffer, variant === 'buffer'), (0, _defineProperty2.default)(_classNames, classes.query, variant === 'query'), _classNames), classNameProp);
+  var dashedClass = (0, _classnames.default)(classes.dashed, (_classNames2 = {}, (0, _defineProperty2.default)(_classNames2, classes.dashedColorPrimary, color === 'primary'), (0, _defineProperty2.default)(_classNames2, classes.dashedColorSecondary, color === 'secondary'), _classNames2));
+  var bar1ClassName = (0, _classnames.default)(classes.bar, (_classNames3 = {}, (0, _defineProperty2.default)(_classNames3, classes.barColorPrimary, color === 'primary'), (0, _defineProperty2.default)(_classNames3, classes.barColorSecondary, color === 'secondary'), (0, _defineProperty2.default)(_classNames3, classes.bar1Indeterminate, variant === 'indeterminate' || variant === 'query'), (0, _defineProperty2.default)(_classNames3, classes.bar1Determinate, variant === 'determinate'), (0, _defineProperty2.default)(_classNames3, classes.bar1Buffer, variant === 'buffer'), _classNames3));
+  var bar2ClassName = (0, _classnames.default)(classes.bar, (_classNames4 = {}, (0, _defineProperty2.default)(_classNames4, classes.barColorPrimary, color === 'primary' && variant !== 'buffer'), (0, _defineProperty2.default)(_classNames4, classes.colorPrimary, color === 'primary' && variant === 'buffer'), (0, _defineProperty2.default)(_classNames4, classes.barColorSecondary, color === 'secondary' && variant !== 'buffer'), (0, _defineProperty2.default)(_classNames4, classes.colorSecondary, color === 'secondary' && variant === 'buffer'), (0, _defineProperty2.default)(_classNames4, classes.bar2Indeterminate, variant === 'indeterminate' || variant === 'query'), (0, _defineProperty2.default)(_classNames4, classes.bar2Buffer, variant === 'buffer'), _classNames4));
+  var rootProps = {};
+  var inlineStyles = {
+    bar1: {},
+    bar2: {}
+  };
+
+  if (variant === 'determinate' || variant === 'buffer') {
+    if (value !== undefined) {
+      rootProps['aria-valuenow'] = Math.round(value);
+      inlineStyles.bar1.transform = "scaleX(".concat(value / 100, ")");
+    } else {
+       true ? (0, _warning.default)(false, 'Material-UI: you need to provide a value property ' + 'when using the determinate or buffer variant of LinearProgress .') : undefined;
+    }
+  }
+
+  if (variant === 'buffer') {
+    if (valueBuffer !== undefined) {
+      inlineStyles.bar2.transform = "scaleX(".concat((valueBuffer || 0) / 100, ")");
+    } else {
+       true ? (0, _warning.default)(false, 'Material-UI: you need to provide a valueBuffer property ' + 'when using the buffer variant of LinearProgress.') : undefined;
+    }
+  }
+
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: className,
+    role: "progressbar"
+  }, rootProps, other), variant === 'buffer' ? _react.default.createElement("div", {
+    className: dashedClass
+  }) : null, _react.default.createElement("div", {
+    className: bar1ClassName,
+    style: inlineStyles.bar1
+  }), variant === 'determinate' ? null : _react.default.createElement("div", {
+    className: bar2ClassName,
+    style: inlineStyles.bar2
+  }));
+}
+
+ true ? LinearProgress.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: _propTypes.default.oneOf(['primary', 'secondary']),
+
+  /**
+   * The value of the progress indicator for the determinate and buffer variants.
+   * Value between 0 and 100.
+   */
+  value: _propTypes.default.number,
+
+  /**
+   * The value for the buffer variant.
+   * Value between 0 and 100.
+   */
+  valueBuffer: _propTypes.default.number,
+
+  /**
+   * The variant to use.
+   * Use indeterminate or query when there is no progress value.
+   */
+  variant: _propTypes.default.oneOf(['determinate', 'indeterminate', 'buffer', 'query'])
+} : undefined;
+LinearProgress.defaultProps = {
+  color: 'primary',
+  variant: 'indeterminate'
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiLinearProgress'
+})(LinearProgress);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/LinearProgress/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/LinearProgress/index.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _LinearProgress.default;
+  }
+});
+
+var _LinearProgress = _interopRequireDefault(__webpack_require__(/*! ./LinearProgress */ "./node_modules/@material-ui/core/LinearProgress/LinearProgress.js"));
 
 /***/ }),
 
@@ -15904,7 +16354,7 @@ exports.default = _default;
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: gql, HttpLink, default, ObservableQuery, NetworkStatus, isApolloError, ApolloError, ApolloClient, Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, FetchType, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, gql, HttpLink, default, ObservableQuery, NetworkStatus, FetchType, isApolloError, ApolloError, ApolloClient, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15915,13 +16365,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NetworkStatus", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["NetworkStatus"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FetchType", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["FetchType"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isApolloError", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["isApolloError"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloError", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["ApolloError"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloClient", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["ApolloClient"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FetchType", function() { return apollo_client__WEBPACK_IMPORTED_MODULE_1__["FetchType"]; });
 
 /* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-link */ "./node_modules/apollo-link/lib/bundle.esm.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Observable", function() { return apollo_link__WEBPACK_IMPORTED_MODULE_2__["Observable"]; });
@@ -22005,7 +22455,7 @@ var ApolloError = (function (_super) {
 /*!*********************************************!*\
   !*** ./node_modules/apollo-client/index.js ***!
   \*********************************************/
-/*! exports provided: ObservableQuery, NetworkStatus, isApolloError, ApolloError, ApolloClient, default, FetchType */
+/*! exports provided: ObservableQuery, NetworkStatus, FetchType, isApolloError, ApolloError, ApolloClient, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
