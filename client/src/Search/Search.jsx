@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Select from 'react-select'
 import * as components from './SearchComponents.jsx'
-import { selectStyles } from './helper.js'
+import { selectStyles } from '../common/style.js'
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles.js'
 import gql from "graphql-tag";
@@ -13,16 +13,12 @@ class Search extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            value: ''
-        }
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(value) {
-        this.setState({
-            value
-        })
+        console.log(value)
+        this.props.onHandleSelect(value)
     }
 
     renderLoading() {
@@ -32,7 +28,7 @@ class Search extends React.Component {
     render() {
         const SEARCH_OPTIONS = gql`
             {
- 	            pokemon(id: null, type: null, name: null) {
+ 	            pokemon(id: null, type: null, name: null, specie: null, move: null) {
                     id,
                     name
                 }
@@ -45,8 +41,10 @@ class Search extends React.Component {
                 ({ loading, error, data}) => {
                     if (loading) {
                         return this.renderLoading();
-                    };
+                    }
+
                     if (error) return `Error! ${error.message}`;
+
                     let suggestions = data.pokemon.map((d) => {
                         return {
                             label: d.name,
@@ -60,7 +58,7 @@ class Search extends React.Component {
                                 styles={styles}
                                 options={suggestions}
                                 components={components}
-                                value={this.state.value}
+                                value={this.props.value}
                                 onChange={this.handleChange}
                                 placeholder="Search for a Pokemon"
                                 isClearable
@@ -76,7 +74,8 @@ class Search extends React.Component {
 
 Search.propTypes = {
     classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object.isRequired,
+    onHandleSelect: PropTypes.func
 }
 
 export default withStyles(styles, { withTheme: true })(Search);
