@@ -32,7 +32,7 @@ const searchPokemon = (id, type, name, specie, move, form) => {
     }
 
     if(name) {
-      query.name = name;
+      query.name = { $text: { $search: name } };
     }
 
     if(specie) {

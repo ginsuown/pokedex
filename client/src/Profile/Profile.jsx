@@ -19,6 +19,19 @@ class Profile extends React.Component {
         return <LoadingBar color={"secondary"}/>
     }
 
+    renderPokemonProfile(classes, pokemon) {
+        return (
+            <div>
+                <Card className={classes.card}>
+                    <ProfileHeader 
+                        classes={classes}
+                        name={pokemon.name}
+                    />
+                </Card>
+            </div>
+        )
+    }
+
     render() {
         const { classes, search } = this.props;
         let name = search ? search.label : null;
@@ -29,7 +42,6 @@ class Profile extends React.Component {
                     name
                 }
             }`;
-        console.log(QUERY);
         return (
             <Query query={QUERY}>
                 {
@@ -43,23 +55,12 @@ class Profile extends React.Component {
                         }
                         if(data && data.pokemon && data.pokemon.length === 1) {
                             let pokemon = data.pokemon[0];
-                            return (
-                                <div>
-                                    <Card class={classes.card}>
-                                        <ProfileHeader 
-                                            classes={classes}
-                                            name={pokemon.name}
-                                        />
-                                    </Card>
-                                </div>
-                            );
+                            return this.renderPokemonProfile(classes, pokemon);
                         } else {
                             return ''
                         }
                     } 
                 }
-
-
             </Query>
         )
     }
