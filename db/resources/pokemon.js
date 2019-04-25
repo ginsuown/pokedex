@@ -1,10 +1,11 @@
-const PokemonSchema = require('../schemas/pokemonSchema')
+const PokemonSchema = require('../schemas/PokemonSchema')
 const mongoose = require('mongoose');
 
 const PokemonModel = mongoose.model('Pokemon', PokemonSchema, 'Pokemon');
 
 const createPokemon = (pokemon, callback) => {
   const newPokemon = new PokemonModel(pokemon);
+
   newPokemon.save((err, results) => {
     console.log(results.length);
     if (err) {
@@ -18,29 +19,19 @@ const createPokemon = (pokemon, callback) => {
 const searchPokemon = (id, type, name, specie, move, form) => {
   return new Promise((resolve, reject) => {
     let query = {};
-
-    if(id) {
-      query.id = id;
-    }
-
+    
     if(type) {
       query.types = { $elemMatch: { name: type } };
-    }
-
-    if(form) {
+    } else if(form) {
       query.forms = { $elemMatch: { name: form }};
-    }
-
-    if(name) {
+    } else if(name) {
       query.name = { $text: { $search: name } };
-    }
-
-    if(specie) {
+    } else if(specie) {
       query = { "species.name": specie };
-    }
-
-    if(move) {
+    } else if(move) {
       query.moves = { $elemMatch: { name: move } };
+    } else {
+      query.id = id;
     }
 
     console.log(`Query: ${JSON.stringify(query)}`);

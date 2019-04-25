@@ -5,6 +5,8 @@ let MovesSchema = require('./common/MovesSchema');
 let SpeciesSchema = require('./common/SpeciesSchema');
 let TypesSchema = require('./common/TypesSchema');
 
+var ObjectId = mongoose.Schema.Types.ObjectId;
+
 let PokemonSchema = mongoose.Schema({
     abilities: [ AbilitiesSchema ],
     base_experience: Number,
@@ -16,7 +18,7 @@ let PokemonSchema = mongoose.Schema({
     moves: [ MovesSchema ],
     name: String,
     order: Number,
-    species: SpeciesSchema,
+    species: ObjectId,
     sprites: {
         back_default: String,
         back_female: String,

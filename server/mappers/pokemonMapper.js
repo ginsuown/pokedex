@@ -1,9 +1,5 @@
-const database = require('./index.js');
-const pokemonAPI = require('../server/apis/pokemon');
-const pokemonDB = require('./resources/pokemon');
-const async = require('async');
 
-let pokemonDataExtraction = (response) => {
+let pokemonMapper = (response) => {
     let {
         abilities,
         base_experience,
@@ -42,7 +38,12 @@ let pokemonDataExtraction = (response) => {
         typeObj.name = t.type.name;
         typeObj.url = t.type.url;
         flattenedTypes.push(typeObj);
-    })
+    });
+
+    //The stock image of the pokemon
+    let image = ''
+
+    // Check which specific species it is and map by Mongo ID
 
     return {
         abilities: flattenedAbilities,
@@ -58,30 +59,9 @@ let pokemonDataExtraction = (response) => {
         species,
         sprites,
         types: flattenedTypes,
-        weight
+        weight,
+        image
     };
 }
 
-let seedMongo = (err, result) => {
-    if(err) {
-        console.error(err)
-    } else {
-        result.forEach((pokemon) => {
-            let data = pokemonDataExtraction(pokemon);
-            pokemonDB.createPokemon(data, (err, results) => {
-                if(err) {
-                    console.error(err)
-                } else {
-                    console.log(results)
-                }
-            });
-        });
-        return;
-    }
-}
-
-async.waterfall([
-    pokemonAPI.getAllPokemon,
-    pokemonAPI.getIndividualPokemonData
-], seedMongo);
-
+module.exports = pokemonMapper;

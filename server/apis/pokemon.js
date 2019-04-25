@@ -1,10 +1,10 @@
-const fetch = require('node-fetch')
-const async = require('async')
-
-const base_url = 'https://pokeapi.co/api/v2/'
+const fetch = require('node-fetch');
+const async = require('async');
+const { base, paths } = require('./urls');
 
 const getAllPokemon = (callback) => {
-    let requestUrl = `${base_url}pokemon/?offset=0&limit=1500`
+    let { pokemon } = paths;
+    let requestUrl = `${base}${pokemon}`
     fetch(requestUrl)
         .then(response => response.json())
         .then(data => {
@@ -19,8 +19,8 @@ const getAllPokemon = (callback) => {
 const getIndividualPokemonData = (list, callback) => {
     async.mapLimit(list, 10, getPokemonData, (err, results) => {
         if(err) {
-            console.log(`Error: ${err}`)
-            callback(err, null)
+            console.log(`Error: ${err}`);
+            callback(err, null);
         } else {
             console.log(`Total results: ${results.length}`)
             callback(null, results);
@@ -29,8 +29,9 @@ const getIndividualPokemonData = (list, callback) => {
 }
 
 const getPokemonData = (pokemon, callback) => {
+    const { url, name } = pokemon;
     console.log(`Calling ${pokemon.url} for ${pokemon.name}`)
-    fetch(pokemon.url)
+    fetch(url)
         .then(response => response.json())
         .then(data => {
             console.log(`Got back order number ${data.order}`)
@@ -40,7 +41,7 @@ const getPokemonData = (pokemon, callback) => {
             console.log(`Failed to fetch ${pokemon.name}`)
             console.log(err)
             callback(null, null)
-        })
+        });
 }
 
 module.exports = {
